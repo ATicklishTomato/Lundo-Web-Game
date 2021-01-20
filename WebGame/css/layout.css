@@ -1,0 +1,39 @@
+body{
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1,h2,h3,p{
+    color: #FFFFFF;
+}
+
+.buttons{
+    text-align: center;
+    align-content: center;
+}
+
+.style {
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #585858;
+    height: 1500px;
+}
+
+.downtext {
+    text-align: center;
+    align-content: center;
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+}
+
+.downtexthelper {
+    position: relative;
+    left: -50%;
+}
+
+.title {
+    text-align: center;
+    align-content: center;
+}
