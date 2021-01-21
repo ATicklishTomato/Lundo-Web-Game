@@ -168,6 +168,15 @@
     <button onclick="turn=(turn+1)%k;">pass</button>
 </div>
 
+<script src="/js/lundo.js"></script>
+<script type="text/javascript">
+    var tmp;
+    setTimeout(tmp_,1000);
+    function tmp_(){ tmp = prompt("Enter your the number of players !!", 0);
+        document.getElementById("user").value = tmp;
+        game.user_assign();}
+</script>
+
 </body>
 
 </html>
