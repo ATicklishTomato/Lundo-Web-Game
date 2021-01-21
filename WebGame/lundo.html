@@ -10,11 +10,14 @@
 
 <body>
 
-<div  style="position:fixed;width:10vw; padding:4vmin;color: white;">Player 1 = Regirock<br>
+<div  style="position:fixed;width:10vw; padding:4vmin;color: white;"><p>Player 1 = Regirock<br>
     Player 2 = Regice<br>
     Player 3 = Registeel (Not Implemented)<br>
     Player 4 = Regidrago (Not Implemented)<br>
-    <button onclick="game.new_game()">NEW GAME</button>
+    Pawn ordering is as follows:<br><br>
+    4   3<br>
+    2   1<br></p>
+    <button onclick="new_game()">NEW GAME</button>
 
 </div>
 <div id="main">
@@ -22,10 +25,10 @@
 
 
         <div class="marginboxes">
-            <div id="rock-4" ><img src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
-            <div id="rock-3" ><img src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
-            <div id="rock-2" ><img src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
-            <div id="rock-1" ><img src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
+            <div><img id="rock-4" src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
+            <div><img id="rock-3" src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
+            <div><img id="rock-2" src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
+            <div><img id="rock-1" src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
         </div>
     </div>
     <div id="top">
@@ -51,10 +54,10 @@
     <div id="ne">
 
         <div class="marginboxes">
-            <div id="steel-4" ><img src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
-            <div id="steel-3" ><img src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
-            <div id="steel-2" ><img src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
-            <div id="steel-1" ><img src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
+            <div><img id="steel-4" src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
+            <div><img id="steel-3" src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
+            <div><img id="steel-2" src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
+            <div><img id="steel-1" src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
         </div>
     </div>
     <div id="left">
@@ -113,10 +116,10 @@
     <div id="sw">
 
         <div class="marginboxes">
-            <div id="drago-4" ><img src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
-            <div id="drago-3" ><img src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
-            <div id="drago-2" ><img src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
-            <div id="drago-1" ><img src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
+            <div><img id="drago-4" src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
+            <div><img id="drago-3" src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
+            <div><img id="drago-2" src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
+            <div><img id="drago-1" src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
         </div>
     </div>
     <div id="bottom">
@@ -141,42 +144,36 @@
     </div>
     <div id="se">
         <div class="marginboxes">
-            <div id="ice-4" ><img src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
-            <div id="ice-3" ><img src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
-            <div id="ice-2" ><img src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
-            <div id="ice-1" ><img src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
+            <div><img id="ice-4" src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
+            <div><img id="ice-3" src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
+            <div><img id="ice-2" src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
+            <div><img id="ice-1" src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
         </div>
 
     </div>
 
 
 </div>
-<div style="z-index:1;position:absolute;top: 30vmin;left:1vmin;">
-    <div id="demo"></div>
+<div style="z-index:1;position:absolute;top: 35vmin;left:1vmin;">
+    <p>You Rolled:</p>
+    <input type="text" id="roll" size="5" disabled style="color: white">
+    <button onclick="diceRoll()"> roll dice</button><br>
+    <button  id="allow_new_part" onclick="engage_Pawn()">New Regi onto the board if roll = 6</button><br>
+    <button id="choose_1" onclick="choose(1)">Move Regi 1</button><br>
+    <button id="choose_2" onclick="choose(2)">Move Regi 2</button><br>
+    <button id="choose_3" onclick="choose(3)">Move Regi 3</button><br>
+    <button id="choose_4" onclick="choose(4)">Move Regi 4</button><br>
 
-    <input type="text" id="roll" size="5">
-    <button  id="roll_button" onclick="game.roll"> roll dice</button>
-    <br>
-    <input type="text" id="user" size="5" style="display:none">
-
-    <button  id="allow_new_part" onclick="game.new_part">Allow new token part if 6</button><br>
-    <button id="choose_1" onclick="game.choose(1)">move token 1</button><br>
-    <button id="choose_2" onclick="game.choose(2)">move token 2</button><br>
-    <button id="choose_3" onclick="game.choose(3)">  move token 3</button><br>
-    <button id="choose_4" onclick="game.choose(4)">  move token 4</button><br>
-
-    <button onclick="turn=(turn+1)%k;">pass</button>
+    <button onclick="pass()">Pass</button>
+    <h2 id="game_message"></h2>
+    <div style="position: absolute;top:-40%;right:-650%;" >
+        <p>Player 1 (Regirock) has </p><p id="player-1-count"></p><p> Regis at the finish line.</p><br>
+        <p>Player 2 (Regice) has </p><p id="player-2-count"></p><p> Regis at the finish line.</p><br>
+        <p>You have played </p><p id="player-1-count"></p><p> games.</p>
+    </div>
 </div>
 
-<script src="/js/lundo.js"></script>
-<script type="text/javascript">
-    var tmp;
-    setTimeout(tmp_,1000);
-    function tmp_(){ tmp = prompt("Enter your the number of players !!", 0);
-        document.getElementById("user").value = tmp;
-        game.user_assign();}
-</script>
-
+<script src="js/lundo2.js"></script>
 </body>
 
 </html>
