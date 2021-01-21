@@ -12,9 +12,9 @@
 
 <div  style="position:fixed;width:10vw; padding:4vmin;color: white;">Player 1 = Regirock<br>
     Player 2 = Regice<br>
-    Player 3 = Registeel<br>
-    Player 4 = Regidrago<br>
-    <button onclick="new_game()">NEW GAME</button>
+    Player 3 = Registeel (Not Implemented)<br>
+    Player 4 = Regidrago (Not Implemented)<br>
+    <button onclick="game.new_game()">NEW GAME</button>
 
 </div>
 <div id="main">
@@ -155,15 +155,15 @@
     <div id="demo"></div>
 
     <input type="text" id="roll" size="5">
-    <button  id="roll_button"> roll dice</button>
+    <button  id="roll_button" onclick="game.roll"> roll dice</button>
     <br>
     <input type="text" id="user" size="5" style="display:none">
 
-    <button  id="allow_new_part">Allow new token part if 6</button><br>
-    <button id="choose_1">move token 1</button><br>
-    <button id="choose_2">move token 2</button><br>
-    <button id="choose_3">  move token 3</button><br>
-    <button id="choose_4">  move token 4</button><br>
+    <button  id="allow_new_part" onclick="game.new_part">Allow new token part if 6</button><br>
+    <button id="choose_1" onclick="game.choose(1)">move token 1</button><br>
+    <button id="choose_2" onclick="game.choose(2)">move token 2</button><br>
+    <button id="choose_3" onclick="game.choose(3)">  move token 3</button><br>
+    <button id="choose_4" onclick="game.choose(4)">  move token 4</button><br>
 
     <button onclick="turn=(turn+1)%k;">pass</button>
 </div>

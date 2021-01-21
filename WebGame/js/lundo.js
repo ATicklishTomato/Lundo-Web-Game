@@ -9,8 +9,8 @@ var control=1;
 var user1, user2, user3, user4;
 
 
-function user(color, position_array, parts_in,color_half,starting_position) {
-    this.color= color;
+function user(regi, position_array, parts_in,color_half,starting_position) {
+    this.regi= regi;
     this.position_array = position_array;
     this.starting_position=starting_position;
     this.parts_in=parts_in;
@@ -34,28 +34,16 @@ var game = {
         if (player_assign_allow == 1) {
             k = parseInt(document.getElementById("user").value);
             switch (k) {
-                case 4:
-                    user4 = new user("yellow", [0, 40, 40, 40, 40, 0, 0, 0, 0], 4,"yel-",40);
-                    general_operation.dead("yel-1");
-                    user4.position_array[5] = 1;
-                    general_operation.make("40", user4.color);
-                /*user4_playing_parts--;*/
-                case 3:
-                    user3 = new user("blue", [0, 27, 27, 27, 27, 0, 0, 0, 0], 4,"blu-",27);
-                    general_operation.dead("blu-1");
-                    general_operation.make("27", user3.color);
-                    user3.position_array[5] = 1;
-                /*user3_playing_parts--;*/
                 case 2:
-                    user2 = new user("red", [0, 14, 14, 14, 14, 0, 0, 0, 0], 4,"red-",14);
-                    general_operation.dead("red-1");
-                    general_operation.make("14", user2.color);
+                    user2 = new user("regice", [0, 27, 27, 27, 27, 0, 0, 0, 0], 4,"ice-",27);
+                    general_operation.dead("ice-1");
+                    general_operation.make("27", user2.regi);
                     user2.position_array[5] = 1;
                 /*user2_playing_parts--;*/
                 case 1:
-                    user1 = new user("green", [0, 1, 1, 1, 1, 0, 0, 0, 0], 4,"gre-",1);
-                    general_operation.dead("gre-1");
-                    general_operation.make("1", user1.color);
+                    user1 = new user("regirock", [0, 1, 1, 1, 1, 0, 0, 0, 0], 4,"rock-",1);
+                    general_operation.dead("rock-1");
+                    general_operation.make("1", user1.regi);
                     user1.position_array[5] = 1;
                 /*user1_playing_parts--;*/
 
@@ -67,7 +55,7 @@ var game = {
         turn = (turn + 1) % k;
     },
     new_game : function() {
-        window.location = "ludo.html";
+        window.location = "../lundo.html";
     },
     choose : function(x) {
         if(user1 ){
@@ -77,12 +65,6 @@ var game = {
                     break;
                 case 1:
                     var arr = user2.position_array;
-                    break;
-                case 2:
-                    var arr = user3.position_array;
-                    break;
-                case 3:
-                    var arr = user4.position_array;
                     break;
             }
             if (x == 1 && arr[5] == 1) {
@@ -185,31 +167,17 @@ var game = {
         if (allow == 1 && control == 1) {
             control=0;
             var t = 0;
-            var color = "";
+            var regi = "";
             switch (turn) {
                 case 0:
                     t = user1.position_array[sel];
-                    color = user1.color;
-                    /*color1 = "rgb(0, 128, 0)";*/
-                    color1 = "green";
+                    regi = user1.regi;
+                    regi1 = "regirock";
                     break;
                 case 1:
                     t = user2.position_array[sel];
-                    color = user2.color;
-                    /*color1 = "rgb(255, 0, 0)";*/
-                    color1 = "red";
-                    break;
-                case 2:
-                    t = user3.position_array[sel];
-                    color = user3.color;
-                    /*color1 = "rgb(0, 0, 255)";*/
-                    color1 = "blue";
-                    break;
-                case 3:
-                    t = user4.position_array[sel];
-                    color = user4.color;
-                    /*color1 = "rgb(255, 255, 0)";*/
-                    color1 = "yellow";
+                    regi = user2.regi;
+                    regi1 = "regice";
                     break;
             }
             console.log(t);
@@ -218,12 +186,12 @@ var game = {
 
                     setTimeout(
                         (function(x, sel) {
-                            var ele_color = document.getElementById(x.toString());
-                            for (i = 0; i < ele_color.childNodes.length; i++) {
+                            var ele_regi = document.getElementById(x.toString());
+                            for (i = 0; i < ele_regi.childNodes.length; i++) {
                                 console.log(color1);
-                                console.log(ele_color.childNodes[i].style.backgroundColor);
-                                if (ele_color.childNodes[i].innerHTML == sel && ele_color.childNodes[i].style.backgroundColor == color1) {
-                                    ele = ele_color.childNodes[i];
+                                console.log(ele_regi.childNodes[i].style.backgroundColor);
+                                if (ele_regi.childNodes[i].innerHTML == sel && ele_regi.childNodes[i].style.backgroundColor == color1) {
+                                    ele = ele_regi.childNodes[i];
                                     break;
                                 }
                             }
@@ -236,16 +204,12 @@ var game = {
                     if (t == 53) {
                         t = 1;
                     }
-                    if (t == 52 && color == "green") t = 101;
-                    if (t == 13 && color == "red") t = 201;
+                    if (t == 52 && regi == "regirock") t = 101;
+                    if (t == 26 && regi == "regice") t = 401;
 
-                    if (t == 26 && color == "blue") t = 401;
-
-                    if (t == 39 && color == "yellow") t = 301;
-
-                    setTimeout(function(y, color, sel) {
-                        general_operation.make(y, color, sel);
-                    }.bind(this, t, color, sel), 500 * i);}
+                    setTimeout(function(y, regi, sel) {
+                        general_operation.make(y, regi, sel);
+                    }.bind(this, t, regi, sel), 500 * i);}
             }
 
 
@@ -261,18 +225,10 @@ var game = {
 
                             {
                                 general_operation.lose_part(t,ele_2_die,user1);
-                            } else if (user2  &&turn1 != 1 && t == user2.position_array[sel1] )
+                            } else if (user2  &&turn1 != 2 && t == user2.position_array[sel1] )
 
                             {
                                 general_operation.lose_part(t,ele_2_die,user2);
-                            } else if (user3 &&turn1 != 2 && t == user3.position_array[sel1])
-
-                            {
-                                general_operation.lose_part(t,ele_2_die,user3);
-                            } else if (user4 &&turn1 != 3 && t == user4.position_array[sel1] )
-
-                            {
-                                general_operation.lose_part(t,ele_2_die,user4);
                             }
                     control = 1;
                 }).bind(this, turn,t), 500 * i - 250);
@@ -282,12 +238,6 @@ var game = {
                     break;
                 case 1:
                     user2.position_array[sel] = t;
-                    break;
-                case 2:
-                    user3.position_array[sel] = t;
-                    break;
-                case 3:
-                    user4.position_array[sel] = t;
                     break;
             }
 
@@ -311,12 +261,12 @@ var game = {
 };
 
 var general_operation = {
-    make: function(y, color_, sel = 1, i = 0) {
+    make: function(y, regi_, sel = 1, i = 0) {
         console.log(sel);
         var a = document.createElement("div");
         if (i == 0)
             a.setAttribute("class", "circle");
-        a.style.backgroundColor=color_;
+        a.style.backgroundColor=regi_;
         a.innerText=sel;
         var y_node = document.getElementById(y);
 
