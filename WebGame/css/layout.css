@@ -38,6 +38,22 @@ h1,h2,h3,p{
     align-content: center;
 }
 
+.rules {
+    text-align: center;
+    align-content: center;
+}
+
+.rules::after{
+    content: "These are the rules of Lündo. We wish you the best of luck in your games and we hope you enjoy!";
+    color: white;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+}
+
 #sw,#nw,#ne, #se{
     width:36vmin;
     height:36vmin;
@@ -105,6 +121,10 @@ input:focus {
 button:hover{
     transform: scale(.95);
     box-shadow: 1px 1px 1px black;
+}
+button:active {
+    color: black;
+    background-color: lightgray;
 }
 
 
