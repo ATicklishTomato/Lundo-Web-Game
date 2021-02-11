@@ -10,15 +10,169 @@
 
 <body>
 
-<div class="title">
-    <h1>Game making still in progress</h1><br>
-    <h3>idk wait or something</h3>
+<div  style="position:fixed;width:10vw; padding:4vmin;color: white;"><p>Player 1 = Regirock<br>
+    Player 2 = Regice<br>
+    Player 3 = Registeel (Not Implemented)<br>
+    Player 4 = Regidrago (Not Implemented)<br>
+    Pawn ordering is as follows:<br><br>
+    4   3<br>
+    2   1<br></p>
+    <button onclick="new_game()">NEW GAME</button>
+
+</div>
+<div id="main">
+    <div id="nw">
+
+
+        <div class="marginboxes">
+            <div><img id="rock-4" src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
+            <div><img id="rock-3" src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
+            <div><img id="rock-2" src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
+            <div><img id="rock-1" src="img/regirock.png" alt="regirock" style=" width:auto; height:100%;"/></div>
+        </div>
+    </div>
+    <div id="top">
+        <div class="a" id="52"></div>
+        <div class="a" id="51"></div>
+        <div class="a" id="50"></div>
+        <div class="a" id="1"></div>
+        <div class="a" id="101"></div>
+        <div class="a" id="49"></div>
+        <div class="a" id="2"></div>
+        <div class="a" id="102"></div>
+        <div class="a" id="48"></div>
+        <div class="a" id="3"></div>
+        <div class="a" id="103"></div>
+        <div class="a" id="47"></div>
+        <div class="a" id="4"></div>
+        <div class="a" id="104"></div>
+        <div class="a" id="46"></div>
+        <div class="a" id="5"></div>
+        <div class="a" id="105"></div>
+        <div class="a" id="45"></div>
+    </div>
+    <div id="ne">
+
+        <div class="marginboxes">
+            <div><img id="steel-4" src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
+            <div><img id="steel-3" src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
+            <div><img id="steel-2" src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
+            <div><img id="steel-1" src="img/registeel.png" alt="registeel" style=" width:auto; height:100%;"/></div>
+        </div>
+    </div>
+    <div id="left">
+        <div class="diff">
+            <div class="a" id="11"></div>
+            <div class="a" id="10"></div>
+            <div class="a" id="9"></div>
+            <div class="a" id="8"></div>
+            <div class="a" id="7"></div>
+            <div class="a" id="6"></div>
+        </div>
+        <div>
+            <div class="a" id="12"></div>
+            <div class="a"  id="201"></div>
+            <div class="a"  id="202"></div>
+            <div class="a" id="203"></div>
+            <div class="a" id="204"></div>
+            <div class="a" id="205"></div>
+        </div><div class="diff">
+        <div class="a" id="13"></div>
+        <div class="a" id="14"></div>
+        <div class="a" id="15"></div>
+        <div class="a" id="16"></div>
+        <div class="a" id="17"></div>
+        <div class="a" id="18"></div>
+    </div>
+    </div>
+    <div id="cen"></div>
+
+    <div id="right">
+        <div class="diff">
+            <div class="a" id="44"></div>
+            <div class="a" id="43"></div>
+            <div class="a" id="42"></div>
+            <div class="a" id="41"></div>
+            <div class="a" id="40"></div>
+            <div class="a" id="39"></div>
+        </div>
+        <div>
+            <div class="a" id="305"></div>
+            <div class="a" id="304"></div>
+            <div class="a" id="303"></div>
+            <div class="a" id="302"></div>
+            <div class="a" id="301"></div>
+            <div class="a" id="38"></div>
+        </div>
+        <div class="diff">
+            <div class="a" id="32"></div>
+            <div class="a" id="33"></div>
+            <div class="a" id="34"></div>
+            <div class="a" id="35"></div>
+            <div class="a" id="36"></div>
+            <div class="a" id="37"></div>
+        </div>
+    </div>
+    <div id="sw">
+
+        <div class="marginboxes">
+            <div><img id="drago-4" src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
+            <div><img id="drago-3" src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
+            <div><img id="drago-2" src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
+            <div><img id="drago-1" src="img/regidrago.png" alt="regidrago" style=" width:auto; height:100%;"/></div>
+        </div>
+    </div>
+    <div id="bottom">
+        <div class="a" id="19"></div>
+        <div class="a" id="405"></div>
+        <div class="a" id="31"></div>
+        <div class="a" id="20"></div>
+        <div class="a" id="404"></div>
+        <div class="a" id="30"></div>
+        <div class="a" id="21"></div>
+        <div class="a" id="403"></div>
+        <div class="a" id="29"></div>
+        <div class="a" id="22"></div>
+        <div class="a" id="402"></div>
+        <div class="a" id="28"></div>
+        <div class="a" id="23"></div>
+        <div class="a" id="401"></div>
+        <div class="a" id="27"></div>
+        <div class="a" id="24"></div>
+        <div class="a" id="25"></div>
+        <div class="a" id="26"></div>
+    </div>
+    <div id="se">
+        <div class="marginboxes">
+            <div><img id="ice-4" src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
+            <div><img id="ice-3" src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
+            <div><img id="ice-2" src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
+            <div><img id="ice-1" src="img/regice.png" alt="regice" style=" width:auto; height:100%;"/></div>
+        </div>
+
+    </div>
+
+<div id="void" style="display: none;"></div>
+</div>
+<div style="z-index:1;position:absolute;top: 35vmin;left:1vmin;">
+    <p>You Rolled:</p>
+    <input type="text" id="roll" size="5" disabled style="color: white">
+    <button onclick="diceRoll()"> roll dice</button><br>
+    <button  id="allow_new_part" onclick="engage_Pawn()">New Regi onto the board if roll = 6</button><br>
+    <button id="choose_1" onclick="choose(1)">Move Regi 1</button><br>
+    <button id="choose_2" onclick="choose(2)">Move Regi 2</button><br>
+    <button id="choose_3" onclick="choose(3)">Move Regi 3</button><br>
+    <button id="choose_4" onclick="choose(4)">Move Regi 4</button><br>
+
+    <button onclick="pass()">Pass</button>
+    <h2 id="game_message"></h2>
+        <p> Regirocks at the finish line:</p><p id="player-1-count"></p><br>
+        <p> Regices at the finish line: </p><p id="player-2-count"></p><br>
+        <p> games played: </p><p id="game-count"></p>
+
 </div>
 
-
-
-
-
+<script src="js/lundo2.js"></script>
 </body>
 
 </html>
